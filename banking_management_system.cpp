@@ -7,8 +7,10 @@
 #include <cstdlib>
 #include <string.h>
 #include <fstream>
+
 using namespace std;
 
+//Class of transaction details
 class trans{
 public:
     string time;
@@ -18,6 +20,7 @@ public:
     double current_bal;
 };
 
+//Class of customers
 class customer{
 public:
     string username;
@@ -40,7 +43,10 @@ public:
     vector<trans> tranj;
 };
 
+//Vector containing Customer details
 vector<customer> c;
+
+//Identifier variable as index for customers
 int indx;
 
 void NEFT();
@@ -71,7 +77,6 @@ void print_fm();
 
 int main()
 {
-
     cout<<"Welcome To Our Bank"<<endl<<endl;
     int x;
     cout<<"Enter the mentioned key to proceed"<<endl;
@@ -132,8 +137,8 @@ int main()
     return 0;
 }
 
-void cust(){
-
+void cust()
+{
     cout<<" YOUR ACCOUNT DETAILS"<<endl<<endl;
     cout<<"USERNAME :"<<c[indx].username<<endl;
     cout<<"NAME :"<<c[indx].name<<endl;
@@ -189,7 +194,6 @@ void cust(){
             cout<<"Wrong input -- You are being redirected to your profile"<<endl;
             cust();
         }
-
 }
 
 int search(string user_n)
@@ -206,8 +210,8 @@ int search(string user_n)
         return 0;
 }
 
-void acc_open(){ 
-
+void acc_open()
+{ 
     customer obj;
 
     cout<<"WELCOME TO IIIT BHOPAL BANK"<<endl<<endl;
@@ -248,8 +252,8 @@ void acc_open(){
     customer_login();
 }
 
-void customer_login(){
-
+void customer_login()
+{
     string un;string pw;
     cout<< "Please enter your username: " << endl;
     fflush(stdin);
@@ -277,7 +281,6 @@ void customer_login(){
         else
         main();
     }
-
 }
 
 void update_pass()
@@ -614,7 +617,6 @@ void manager()
 
     else
     main();
-
 }
 
 void m_cust_detail()
@@ -628,7 +630,6 @@ void m_cust_detail()
     cout<<endl<<"For More Details for  a Particular person Enter Number: ";
     cin>>ind;
     m_customer(ind);
-
 }
 
 void m_loan()
@@ -671,17 +672,12 @@ void m_customer(int ind)
     c.erase(c.begin()+ind-1);
     else
     manager();
-
 }
 
 void print_fm()
 {
-    // fflush fout;
-    // fout.open("Customer_Data.txt");
     ofstream fout;
-
     fout.open("Customer_Data.txt");
-
     fout<<"S No. \t Customer Name \t User Name \t Account Number \t Phone Number \t Pan Card "<<endl;
     for(int i=0;i<c.size();i++)
     {
@@ -691,7 +687,6 @@ void print_fm()
     fout.close();
     getch();
     manager();
-
 }
 
 void loan()
@@ -740,17 +735,13 @@ void loan()
     }
     else
     cust();
-
     cout<<endl;
     getch();
-    cust();
-
-    
+    cust();  
 }
 
 void loan_in(int r)
 {
-    
     int loan_amt;
     cout<<"Enter The Loan Amount: ";
     cin>>loan_amt;
@@ -773,7 +764,6 @@ void loan_in(int r)
     
     getch();
     cust();
-
 }
 
 void loan_repay()
